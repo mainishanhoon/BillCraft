@@ -1,5 +1,3 @@
-import { Metadata } from 'next';
-import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -7,23 +5,20 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { signIn } from '@/utils/auth';
+import { auth, signIn } from '@/utils/auth';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Form from 'next/form';
 import { redirect } from 'next/navigation';
-import { fetchUser } from '@/hooks/hooks';
-
-export const metadata: Metadata = {
-  title: 'About',
-};
+import { SubmitButton } from '@/components/Buttons';
 
 export default async function page() {
-    const session = await fetchUser();
+  const session = await auth();
 
-    if (session?.user) {
-      redirect('/dashboard');
-    }
+  if (session?.user) {
+    return redirect('/dashboard');
+  }
+
   return (
     <div className="flex h-dvh w-full items-center justify-center px-4">
       <Card className="max-w-sm">
@@ -43,9 +38,18 @@ export default async function page() {
           >
             <div className="flex flex-col gap-y-2">
               <Label>Email</Label>
-              <Input name='email' type="email" required placeholder="loremipsum@email.com"></Input>
+              <Input
+                name="email"
+                type="email"
+                required
+                placeholder="loremipsum@email.com"
+              />
             </div>
-            <Button>Submit</Button>
+            <SubmitButton
+              text="Send Email"
+              loadingText="Sending Email..."
+              variant="default"
+            />
           </Form>
         </CardContent>
       </Card>

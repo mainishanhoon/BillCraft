@@ -41,7 +41,7 @@ export default function VerifyRoute() {
               variant: 'outline',
             })}
           >
-            <ChevronsLeft size={25} />
+            <ChevronsLeft size={25} strokeWidth={2.5} />
             <p>Back to HomePage</p>
           </Link>
         </CardFooter>

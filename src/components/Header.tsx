@@ -7,7 +7,8 @@ import {
 } from '@/components/ui/sheet';
 import { Volleyball } from 'lucide-react';
 import ThemeToggle from '@/components/ThemeSwitcher';
-import NavBar from './NavBar';
+import NavBar from '@/components/NavBar';
+import UserDropdown from '@/components/auth/UserDetail';
 
 export default function AdminHeader() {
   return (
@@ -69,6 +70,7 @@ export default function AdminHeader() {
 
         <div className="flex items-center space-x-2 sm:space-x-5">
           <ThemeToggle />
+          <UserDropdown />
         </div>
       </div>
     </header>
