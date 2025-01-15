@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${outfit.className} ${serif.variable} ${jura.variable} antialiased`}
+        className={`${outfit.className} ${serif.variable} ${jura.variable} bg-background text-foreground antialiased`}
       >
         <NextTopLoader color="hsl(var(--primary))" showSpinner={false} />
         <ThemeProvider

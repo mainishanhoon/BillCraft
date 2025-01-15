@@ -11,11 +11,19 @@ import { signIn } from '@/utils/auth';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Form from 'next/form';
+import { redirect } from 'next/navigation';
+import { fetchUser } from '@/hooks/hooks';
+
 export const metadata: Metadata = {
   title: 'About',
 };
 
-export default function page() {
+export default async function page() {
+    const session = await fetchUser();
+
+    if (session?.user) {
+      redirect('/dashboard');
+    }
   return (
     <div className="flex h-dvh w-full items-center justify-center px-4">
       <Card className="max-w-sm">
