@@ -6,10 +6,23 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { prisma } from '@/lib/prisma';
 import { CircleFadingPlus, Table } from 'lucide-react';
 import Link from 'next/link';
+import { columns } from '@/components/tables/invoices/Columns';
+import { DataTable } from '@/components/tables/invoices/DataTable';
 
-export default function InvoicesRoute() {
+async function getData() {
+  const data = await prisma.invoice.findMany({
+    orderBy: { createdAt: 'desc' },
+  });
+
+  return data;
+}
+
+export default async function InvoicesRoute() {
+  const data = await getData();
+
   return (
     <section className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
@@ -29,12 +42,14 @@ export default function InvoicesRoute() {
           </Link>
         </Button>
       </div>
-      <Card>
+      <Card className="pt-6">
         <CardHeader className="sr-only">
           <CardTitle className="text-xl">Invoices</CardTitle>
           <CardDescription>Manage your invoices right here</CardDescription>
         </CardHeader>
-        <CardContent></CardContent>
+        <CardContent className="font-jura font-bold">
+          <DataTable data={data} columns={columns} />
+        </CardContent>
       </Card>
     </section>
   );

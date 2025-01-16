@@ -102,3 +102,5 @@ export async function CreateInvoiceAction(
 
   return redirect('/dashboard/invoices');
 }
+
+export async function DeleteInvoiceAction() {}
