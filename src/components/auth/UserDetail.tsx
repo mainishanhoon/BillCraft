@@ -50,7 +50,7 @@ export default async function UserDropdown() {
 
   return (
     <div className="flex items-center gap-2">
-      <Label className="flex flex-col justify-end text-sm">
+      <Label className="hidden flex-col justify-end text-sm md:flex">
         <div className="flex gap-1">
           <p>{data.firstName}</p>
           <p>{data.lastName}</p>
@@ -63,21 +63,21 @@ export default async function UserDropdown() {
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="icon" className="rounded-full">
-            <Image
-              src={
-                (session?.user?.image as string) ||
-                `https://avatar.vercel.sh/rauchg.svg?text=${data.firstName?.charAt(0)}${data.lastName?.charAt(0)}`
-              }
-              alt="Profile Image"
-              width={75}
-              height={75}
-              className="size-full rounded-full object-contain"
-            />
-          </Button>
+          <Image
+            src={
+              (session?.user?.image as string) ||
+              `https://avatar.vercel.sh/rauchg.svg?text=${data.firstName?.charAt(0)}${data.lastName?.charAt(0)}`
+            }
+            alt="Profile Image"
+            width={75}
+            height={75}
+            className="size-10 cursor-pointer rounded-lg object-contain"
+          />
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuLabel className="text-center">
+            My Account
+          </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <SignOutButton />
         </DropdownMenuContent>

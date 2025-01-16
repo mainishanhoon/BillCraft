@@ -26,15 +26,15 @@ export function SubmitButton({ text,loadingText, variant, className }: ButtonPro
   return (
     <>
       {pending ? (
-        <Button disabled variant="outline" className={cn('w-fit', className)}>
-          <Loader className="mr-2 size-4 animate-spin [animation-duration:3s]" />
+        <Button disabled variant="outline" className={cn('w-fit border-dashed border-2 border-muted-foreground', className)}>
+          <Loader className="mr-2 size-5 font-jura animate-spin font-bold [animation-duration:3s]" />
           {loadingText}
         </Button>
       ) : (
         <Button
           type="submit"
           variant={variant}
-          className={cn('w-fit tracking-wider', className)}
+          className={cn('w-fit tracking-wider font-jura font-bold', className)}
         >
           {text}
         </Button>

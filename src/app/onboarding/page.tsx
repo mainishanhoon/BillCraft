@@ -66,7 +66,12 @@ export default function OnboardingRoute() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Form id={form.id} onSubmit={form.onSubmit} action={formAction} noValidate>
+          <Form
+            id={form.id}
+            onSubmit={form.onSubmit}
+            action={formAction}
+            noValidate
+          >
             <div className="flex flex-col gap-5">
               <div className="grid gap-5 md:grid-cols-2 md:gap-2">
                 <div className="flex flex-col gap-2">
@@ -79,7 +84,7 @@ export default function OnboardingRoute() {
                     className="w-full"
                     placeholder="First Name"
                   />
-                  <p className="font-mont -mt-2 ml-3 text-destructive">
+                  <p className="-mt-2 ml-3 font-mont text-destructive">
                     {fields.firstName.errors}
                   </p>
                 </div>
@@ -93,7 +98,7 @@ export default function OnboardingRoute() {
                     className="w-full"
                     placeholder="Last Name"
                   />
-                  <p className="font-mont -mt-2 ml-3 text-destructive">
+                  <p className="-mt-2 ml-3 font-mont text-destructive">
                     {fields.lastName.errors}
                   </p>
                 </div>
@@ -120,7 +125,7 @@ export default function OnboardingRoute() {
                       ))}
                     </SelectContent>
                   </Select>
-                  <p className="font-mont -mt-2 ml-3 text-destructive">
+                  <p className="-mt-2 ml-3 font-mont text-destructive">
                     {fields.state.errors}
                   </p>
                 </div>
@@ -149,7 +154,7 @@ export default function OnboardingRoute() {
                       )}
                     </SelectContent>
                   </Select>
-                  <p className="font-mont -mt-2 ml-3 text-destructive">
+                  <p className="-mt-2 ml-3 font-mont text-destructive">
                     {fields.city.errors}
                   </p>
                 </div>
@@ -163,7 +168,7 @@ export default function OnboardingRoute() {
                   className="w-full"
                   placeholder="Street/Area"
                 />
-                <p className="font-mont -mt-2 ml-3 text-destructive">
+                <p className="-mt-2 ml-3 font-mont text-destructive">
                   {fields.street.errors}
                 </p>
               </div>
@@ -177,7 +182,7 @@ export default function OnboardingRoute() {
                   className="w-full"
                   placeholder="Pin Code "
                 />
-                <p className="font-mont -mt-2 ml-3 text-destructive">
+                <p className="-mt-2 ml-3 font-mont text-destructive">
                   {fields.pincode.errors}
                 </p>
               </div>

@@ -1,12 +1,18 @@
 import type { Metadata } from 'next';
-import { DM_Serif_Text, Jura, Outfit } from 'next/font/google';
+import {
+  DM_Serif_Text,
+  Jura,
+  Montserrat,
+  Outfit,
+  Rubik,
+} from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import './globals.css';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { Toaster } from 'sonner';
 
-const outfit = Outfit({
-  variable: '--font-outfit',
+const montserrat = Montserrat({
+  variable: '--font-montserrat',
   subsets: ['latin'],
 });
 
@@ -17,7 +23,7 @@ const serif = DM_Serif_Text({
 });
 
 const jura = Jura({
-  weight: ['400'],
+  weight: ['700'],
   variable: '--font-jura',
   subsets: ['latin'],
 });
@@ -36,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${outfit.className} ${serif.variable} ${jura.variable} bg-background text-foreground antialiased`}
+        className={`${montserrat.className} ${serif.variable} ${jura.variable} bg-background tracking-wide text-foreground antialiased`}
       >
         <NextTopLoader color="hsl(var(--primary))" showSpinner={false} />
         <ThemeProvider

@@ -1,24 +1,14 @@
-import { BadgeInfo, BriefcaseBusiness, LayoutList, Store } from 'lucide-react';
+import { BadgeInfo, Store } from 'lucide-react';
 
 export const navItems = [
   {
-    label: 'Home',
-    href: 'home',
+    label: 'Dashboard',
+    href: '/dashboard',
     icon: Store,
   },
   {
-    label: 'About',
-    href: 'about',
+    label: 'Invoices',
+    href: '/dashboard/invoices',
     icon: BadgeInfo,
-  },
-  {
-    label: 'Products',
-    href: 'products',
-    icon: LayoutList,
-  },
-  {
-    label: 'Careers',
-    href: 'careers',
-    icon: BriefcaseBusiness,
-  },
+  }
 ];
