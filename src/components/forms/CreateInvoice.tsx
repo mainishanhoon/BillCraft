@@ -100,7 +100,6 @@ export function InvoiceCreationForm({ data }: InvoiceCreationProps) {
               name={fields.date.name}
               value={selectedDate.toISOString()}
             />
-
             <input
               type="hidden"
               name={fields.total.name}

@@ -92,7 +92,7 @@ export function InvoiceUpdationForm({ data }: InvoiceUpdationProps) {
               name={fields.date.name}
               value={selectedDate.toISOString()}
             />
-
+            <input type="hidden" name="id" value={data.id} />
             <input
               type="hidden"
               name={fields.total.name}
@@ -329,9 +329,7 @@ export function InvoiceUpdationForm({ data }: InvoiceUpdationProps) {
                     <PopoverContent>
                       <Calendar
                         selected={selectedDate}
-                        onSelect={(date) =>
-                          setSelectedDate(date || new Date())
-                        }
+                        onSelect={(date) => setSelectedDate(date || new Date())}
                         mode="single"
                         fromDate={new Date()}
                       />

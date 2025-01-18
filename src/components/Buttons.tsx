@@ -39,14 +39,14 @@ export function SubmitButton({
             className,
           )}
         >
-          <Loader className="mr-2 size-5 animate-spin font-jura font-bold [animation-duration:3s]" />
+          <Loader className="size-5 animate-spin font-jura font-bold [animation-duration:3s]" />
           {loadingText}
         </Button>
       ) : (
         <Button
           type="submit"
           variant={variant}
-          className={cn('w-fit font-jura font-bold tracking-wider', className)}
+          className={cn('w-fit font-jura font-bold', className)}
         >
           {text}
         </Button>
