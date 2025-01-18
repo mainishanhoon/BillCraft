@@ -83,32 +83,32 @@ model Authenticator {
 
 model Invoice {
   id            String        @id @default(uuid())
-  invoiceName   String?
+  invoiceName   String
   total         Int
   status        InvoiceStatus
   date          DateTime
   dueDate       Int
-  fromName      String?
-  fromEmail     String?
-  fromStreet    String?
-  fromCity      String?
-  fromState     String?
+  fromName      String
+  fromEmail     String
+  fromStreet    String
+  fromCity      String
+  fromState     String
   fromPinCode   Int
-  clientName    String?
-  clientEmail   String?
-  clientAddress String?
-  currency      String?
+  clientName    String
+  clientEmail   String
+  clientAddress String
+  currency      String
   invoiceNumber Int
   note          String?
 
-  invoiceItemDescription String?
+  invoiceItemDescription String
   invoiceItemQuantity    Int
   invoiceItemRate        Int
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   User      User?    @relation(fields: [userId], references: [id])
-  userId    String?
+  userId    String
 }
 
 enum InvoiceStatus {

@@ -30,6 +30,7 @@ import { formatCurrency } from '@/utils/formatCurrency';
 import Form from 'next/form';
 import { cities } from '@/constants/cities';
 import { states } from '@/constants/states';
+import { CurrencySign } from '@/types/types';
 
 interface InvoiceCreationProps {
   data: {
@@ -197,7 +198,7 @@ export function InvoiceCreationForm({ data }: InvoiceCreationProps) {
                     {fields.fromEmail.errors}
                   </p>
                 </div>
-                <div className="col-span-2 grid gap-4 md:mt-2 md:grid-cols-4">
+                <div className="col-span-2 grid gap-4 md:mt-7 md:grid-cols-4">
                   <div className="flex flex-col gap-2">
                     <Label>Street</Label>
                     <Input
@@ -335,9 +336,7 @@ export function InvoiceCreationForm({ data }: InvoiceCreationProps) {
                     <PopoverContent>
                       <Calendar
                         selected={selectedDate}
-                        onSelect={(date: any) =>
-                          setSelectedDate(date || new Date())
-                        }
+                        onSelect={(date) => setSelectedDate(date || new Date())}
                         mode="single"
                         fromDate={new Date()}
                       />
@@ -401,7 +400,7 @@ export function InvoiceCreationForm({ data }: InvoiceCreationProps) {
                   <Input
                     value={formatCurrency({
                       amount: calcualteTotal,
-                      currency: currency as any,
+                      currency: currency as CurrencySign,
                     })}
                     disabled
                   />
@@ -435,14 +434,14 @@ export function InvoiceCreationForm({ data }: InvoiceCreationProps) {
 
               <Badge
                 variant="secondary"
-                className="mt-6 flex h-fit w-full flex-col justify-end gap-1 border-2 border-dashed border-muted-foreground bg-muted-foreground/25 px-5 font-jura font-medium"
+                className="flex h-fit w-full flex-col justify-end gap-1 border-2 border-dashed border-muted-foreground bg-muted-foreground/25 px-5 font-jura font-medium md:mt-6"
               >
                 <div className="flex h-fit w-full justify-between text-base">
                   <span>Subtotal</span>
                   <span>
                     {formatCurrency({
                       amount: calcualteTotal,
-                      currency: currency as any,
+                      currency: currency as CurrencySign,
                     })}
                   </span>
                 </div>
@@ -451,7 +450,7 @@ export function InvoiceCreationForm({ data }: InvoiceCreationProps) {
                   <span className="font-medium underline underline-offset-4">
                     {formatCurrency({
                       amount: calcualteTotal,
-                      currency: currency as any,
+                      currency: currency as CurrencySign,
                     })}
                   </span>
                 </div>

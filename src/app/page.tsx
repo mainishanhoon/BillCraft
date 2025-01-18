@@ -1,12 +1,10 @@
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { Hero, NavBar } from '@/components/Hero';
 
 export default function Home() {
   return (
-    <div className="flex h-dvh w-full items-center justify-center px-4">
-      <Button>
-        <Link href="/signIn">SignIn Route</Link>
-      </Button>
-    </div>
+    <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <NavBar />
+      <Hero />
+    </main>
   );
 }

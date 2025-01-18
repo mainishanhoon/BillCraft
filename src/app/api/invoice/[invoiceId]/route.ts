@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { formatCurrency } from '@/utils/formatCurrency';
+import { CurrencySign } from '@/types/types';
 
 interface Params {
   params: Promise<{ invoiceId: string }>;
@@ -100,9 +101,12 @@ export async function GET(req: Request, { params }: Params) {
       data.invoiceItemQuantity.toString(),
       formatCurrency({
         amount: data.invoiceItemRate,
-        currency: data.currency as any,
+        currency: data.currency as CurrencySign,
       }),
-      formatCurrency({ amount: data.total, currency: data.currency as any }),
+      formatCurrency({
+        amount: data.total,
+        currency: data.currency as CurrencySign,
+      }),
     ],
   ];
 
@@ -115,9 +119,12 @@ export async function GET(req: Request, { params }: Params) {
         data.invoiceItemQuantity.toString(), // Quantity
         formatCurrency({
           amount: data.invoiceItemRate,
-          currency: data.currency as any,
+          currency: data.currency as CurrencySign,
         }), // Rate
-        formatCurrency({ amount: data.total, currency: data.currency as any }), // Total
+        formatCurrency({
+          amount: data.total,
+          currency: data.currency as CurrencySign,
+        }), // Total
       ],
     ],
     startY: 80, // Start position on the page
@@ -153,7 +160,10 @@ export async function GET(req: Request, { params }: Params) {
   pdf.setFont('helvetica', 'bold');
   pdf.text('Total:', 170, tableY + 10, { align: 'right' });
   pdf.text(
-    formatCurrency({ amount: data.total, currency: data.currency as any }),
+    formatCurrency({
+      amount: data.total,
+      currency: data.currency as CurrencySign,
+    }),
     190,
     tableY + 10,
     { align: 'right' },

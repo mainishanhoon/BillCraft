@@ -5,10 +5,6 @@ import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 import { navItems } from '@/constants/navLinks';
 
-interface NavBarProps {
-  onNavItemClick: () => void;
-}
-
 export default function NavBar() {
   const pathname = usePathname();
   return (

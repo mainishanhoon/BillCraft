@@ -1,7 +1,7 @@
 import { InvoiceCreationForm } from '@/components/forms/CreateInvoice';
 import { prisma } from '@/lib/prisma';
 import { fetchUser } from '@/hooks/hooks';
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 async function getUserData(userId: string) {
   const data = await prisma.user.findUnique({

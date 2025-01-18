@@ -7,6 +7,7 @@ import { parseWithZod } from '@conform-to/zod';
 import { InvoiceSchema, OnboardingUserSchema } from '@/lib/zod';
 import { formatCurrency } from '@/utils/formatCurrency';
 import { EmailClient, Sender } from '@/lib/mailtrap';
+import { CurrencySign } from '@/types/types';
 
 const PUBLIC_URL = process.env.PUBLIC_URL!;
 
@@ -89,7 +90,7 @@ export async function CreateInvoiceAction(
       }).format(new Date(submission.value.date)),
       invoiceAmount: formatCurrency({
         amount: submission.value.total,
-        currency: submission.value.currency as any,
+        currency: submission.value.currency as CurrencySign,
       }),
       invoiceLink: `${PUBLIC_URL}/api/invoice/${data.id}`,
     },
@@ -153,7 +154,7 @@ export async function InvoiceUpdationAction(
       }).format(new Date(submission.value.date)),
       invoiceAmount: formatCurrency({
         amount: submission.value.total,
-        currency: submission.value.currency as any,
+        currency: submission.value.currency as CurrencySign,
       }),
       invoiceLink: `${PUBLIC_URL}/api/invoice/${data.id}`,
     },

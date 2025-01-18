@@ -1,6 +1,8 @@
+import { CurrencySign } from '@/types/types';
+
 interface Currency {
   amount: number;
-  currency: 'INR' | 'USD' | 'EUR';
+  currency: CurrencySign;
 }
 
 export function formatCurrency({ amount, currency }: Currency) {

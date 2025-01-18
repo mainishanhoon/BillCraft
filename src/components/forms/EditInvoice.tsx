@@ -31,6 +31,7 @@ import Form from 'next/form';
 import { cities } from '@/constants/cities';
 import { states } from '@/constants/states';
 import { Prisma } from '@prisma/client';
+import { CurrencySign } from '@/types/types';
 
 interface InvoiceUpdationProps {
   data: Prisma.InvoiceGetPayload<{}>;
@@ -328,7 +329,7 @@ export function InvoiceUpdationForm({ data }: InvoiceUpdationProps) {
                     <PopoverContent>
                       <Calendar
                         selected={selectedDate}
-                        onSelect={(date: any) =>
+                        onSelect={(date) =>
                           setSelectedDate(date || new Date())
                         }
                         mode="single"
@@ -394,7 +395,7 @@ export function InvoiceUpdationForm({ data }: InvoiceUpdationProps) {
                   <Input
                     value={formatCurrency({
                       amount: calcualteTotal,
-                      currency: currency as any,
+                      currency: currency as CurrencySign,
                     })}
                     disabled
                   />
@@ -435,7 +436,7 @@ export function InvoiceUpdationForm({ data }: InvoiceUpdationProps) {
                   <span>
                     {formatCurrency({
                       amount: calcualteTotal,
-                      currency: currency as any,
+                      currency: currency as CurrencySign,
                     })}
                   </span>
                 </div>
@@ -444,7 +445,7 @@ export function InvoiceUpdationForm({ data }: InvoiceUpdationProps) {
                   <span className="font-medium underline underline-offset-4">
                     {formatCurrency({
                       amount: calcualteTotal,
-                      currency: currency as any,
+                      currency: currency as CurrencySign,
                     })}
                   </span>
                 </div>

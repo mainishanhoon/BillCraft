@@ -4,7 +4,7 @@ import { RefreshCcw } from 'lucide-react';
 import { Table } from '@tanstack/react-table';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { category, status } from '@/constants/sort';
+import { status } from '@/constants/sort';
 import { DataTableFacetedFilter } from './FacetedFilter';
 import { CalendarDatePicker } from './CalendarDatePicker';
 import { useState } from 'react';

@@ -4,11 +4,9 @@ import {
   DropdownMenuSeparator,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-  DropdownMenuItem,
 } from '@/components/ui/dropdown-menu';
 import { fetchUser } from '@/hooks/hooks';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
 import { MapPin } from 'lucide-react';
 import { prisma } from '@/lib/prisma';
 import { redirect } from 'next/navigation';

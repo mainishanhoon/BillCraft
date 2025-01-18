@@ -1,9 +1,9 @@
-"use client"
+'use client';
 
-import { cn } from "@/lib/utils";
-import { useFormStatus } from "react-dom";
-import { Button } from "./ui/button";
-import { Loader } from "lucide-react";
+import { cn } from '@/lib/utils';
+import { useFormStatus } from 'react-dom';
+import { Button } from './ui/button';
+import { Loader } from 'lucide-react';
 
 interface ButtonProps {
   text: string;
@@ -20,24 +20,37 @@ interface ButtonProps {
   className?: string;
 }
 
-export function SubmitButton({ text,loadingText, variant, className }: ButtonProps) {
+export function SubmitButton({
+  text,
+  loadingText,
+  variant,
+  className,
+}: ButtonProps) {
   const { pending } = useFormStatus();
 
   return (
     <>
       {pending ? (
-        <Button disabled variant="outline" className={cn('w-fit border-dashed border-2 border-muted-foreground', className)}>
-          <Loader className="mr-2 size-5 font-jura animate-spin font-bold [animation-duration:3s]" />
+        <Button
+          disabled
+          variant="outline"
+          className={cn(
+            'w-fit border-2 border-dashed border-muted-foreground',
+            className,
+          )}
+        >
+          <Loader className="mr-2 size-5 animate-spin font-jura font-bold [animation-duration:3s]" />
           {loadingText}
         </Button>
       ) : (
         <Button
           type="submit"
           variant={variant}
-          className={cn('w-fit tracking-wider font-jura font-bold', className)}
+          className={cn('w-fit font-jura font-bold tracking-wider', className)}
         >
           {text}
         </Button>
       )}
     </>
   );
+}
