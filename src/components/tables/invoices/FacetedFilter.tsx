@@ -80,7 +80,7 @@ export function DataTableFacetedFilter<TData, TValue>({
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0" align="start">
+      <PopoverContent className="w-auto p-0 font-jura" align="center">
         <Command>
           <CommandInput placeholder={title} />
           <CommandList>
@@ -102,7 +102,6 @@ export function DataTableFacetedFilter<TData, TValue>({
                         filterValues.length ? filterValues : undefined,
                       );
                     }}
-                    className="font-jura"
                   >
                     <div
                       className={cn(

@@ -23,45 +23,43 @@ export function DataTableColumnHeader<TData, TValue>({
 }: DataTableColumnHeaderProps<TData, TValue>) {
   if (!column.getCanSort()) {
     return (
-      <div
-        className={cn('p-2 text-center font-bold tracking-wider', className)}
-      >
+      <div className={cn('text-center font-bold tracking-wider', className)}>
         {title}
       </div>
     );
   }
 
   return (
-    <div className={cn('space-x-2 text-center tracking-wide', className)}>
+    <div className={cn('text-center tracking-wide', className)}>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
             size="sm"
-            className="-ml-3 h-8 data-[state=open]:bg-accent"
+            className="h-8 data-[state=open]:bg-accent"
           >
             <span className="font-bold">{title}</span>
             {column.getIsSorted() === 'desc' ? (
-              <ArrowDown strokeWidth={3} className="ml-2 h-4 w-4" />
+              <ArrowDown strokeWidth={3} className="h-4 w-4" />
             ) : column.getIsSorted() === 'asc' ? (
-              <ArrowUp strokeWidth={3} className="ml-2 h-4 w-4" />
+              <ArrowUp strokeWidth={3} className="h-4 w-4" />
             ) : (
-              <ChevronsUpDown strokeWidth={3} className="ml-2 h-4 w-4" />
+              <ChevronsUpDown strokeWidth={3} className="h-4 w-4" />
             )}
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start">
+        <DropdownMenuContent align="center">
           <DropdownMenuItem onClick={() => column.toggleSorting(false)}>
             <ArrowUp
               strokeWidth={3}
-              className="mr-2 h-3.5 w-3.5 text-muted-foreground/70"
+              className="h-3.5 w-3.5 text-muted-foreground/70"
             />
             <span>Asc</span>
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => column.toggleSorting(true)}>
             <ArrowDown
               strokeWidth={3}
-              className="mr-2 h-3.5 w-3.5 text-muted-foreground/70"
+              className="h-3.5 w-3.5 text-muted-foreground/70"
             />
             <span>Desc</span>
           </DropdownMenuItem>
@@ -69,7 +67,7 @@ export function DataTableColumnHeader<TData, TValue>({
           <DropdownMenuItem onClick={() => column.toggleVisibility(false)}>
             <EyeClosed
               strokeWidth={3}
-              className="mr-2 h-3.5 w-3.5 text-muted-foreground/70"
+              className="h-3.5 w-3.5 text-muted-foreground/70"
             />
             <span>Hide</span>
           </DropdownMenuItem>

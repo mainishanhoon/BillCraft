@@ -11,31 +11,25 @@ export const columns: ColumnDef<Invoice>[] = [
   {
     accessorKey: 'id',
     header: ({ column }) => (
-      <DataTableColumnHeader
-        className="hidden size-0 p-0"
-        column={column}
-        title="ID"
-      />
+      <DataTableColumnHeader className="sr-only" column={column} title="ID" />
     ),
     cell: ({ row }) => {
-      return <span className="hidden size-0 p-0">{row.getValue('id')}</span>;
+      return <span className="sr-only">{row.getValue('id')}</span>;
     },
   },
   {
     accessorKey: 'invoiceNumber',
     header: ({ column }) => (
       <DataTableColumnHeader
-        className="flex w-full justify-start text-xl"
+        className="border-r border-dashed text-center"
         column={column}
         title="Invoice ID"
       />
     ),
     cell: ({ row }) => {
       return (
-        <div className="">
-          <span className="w-full font-bold">
-            {row.getValue('invoiceNumber')}
-          </span>
+        <div className="border-r border-dotted text-center">
+          <span className="font-bold">{row.getValue('invoiceNumber')}</span>
         </div>
       );
     },
@@ -44,34 +38,46 @@ export const columns: ColumnDef<Invoice>[] = [
     accessorKey: 'clientName',
     header: ({ column }) => (
       <DataTableColumnHeader
-        className="flex w-full justify-start"
+        className="border-r border-dashed text-center"
         column={column}
         title="Customer"
       />
     ),
     cell: ({ row }) => {
       return (
-        <div className="">
-          <span className="w-full truncate font-bold">
-            {row.getValue('clientName')}
-          </span>
+        <div className="border-r border-dotted text-center">
+          <span className="font-bold">{row.getValue('clientName')}</span>
         </div>
       );
+    },
+  },
+  {
+    accessorKey: 'currency',
+    header: ({ column }) => (
+      <DataTableColumnHeader className="sr-only" column={column} title="ID" />
+    ),
+    cell: ({ row }) => {
+      return <span className="sr-only">{row.getValue('currency')}</span>;
     },
   },
   {
     accessorKey: 'total',
     header: ({ column }) => (
       <DataTableColumnHeader
-        className="flex w-full justify-start"
+        className="border-r border-dashed text-center"
         column={column}
         title="Total"
       />
     ),
     cell: ({ row }) => {
       return (
-        <div className="">
-          ₹<span className="w-24 font-bold">{row.getValue('total')}</span>
+        <div className="border-r border-dotted text-center">
+          <span className="font-bold">
+            {formatCurrency({
+              amount: row.getValue('total'),
+              currency: row.getValue('currency'),
+            })}
+          </span>
         </div>
       );
     },
@@ -83,21 +89,22 @@ export const columns: ColumnDef<Invoice>[] = [
     accessorKey: 'status',
     header: ({ column }) => (
       <DataTableColumnHeader
-        className="w-full"
+        className="border-r border-dashed text-center"
         column={column}
         title="Status"
       />
     ),
     cell: ({ row }) => {
       return (
-        <div className="flex justify-center">
-          <span className="-mr-2 w-24 font-bold">
+        <div className="border-r border-dotted text-center">
+          <span className="font-bold">
             <Badge
               variant={
                 row.getValue('status') === 'PENDING'
                   ? 'secondary'
                   : 'constructive'
               }
+              className="rounded-sm"
             >
               {row.getValue('status')}
             </Badge>
@@ -113,7 +120,7 @@ export const columns: ColumnDef<Invoice>[] = [
     accessorKey: 'createdAt',
     header: ({ column }) => (
       <DataTableColumnHeader
-        className="w-full"
+        className="border-r border-dashed text-center"
         column={column}
         title="Created At"
       />
@@ -126,8 +133,8 @@ export const columns: ColumnDef<Invoice>[] = [
         year: 'numeric',
       });
       return (
-        <div className="flex justify-center">
-          <span className="w-28 font-bold">{formattedDate}</span>
+        <div className="border-r border-dotted text-center">
+          <span className="font-bold">{formattedDate}</span>
         </div>
       );
     },

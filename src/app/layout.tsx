@@ -1,11 +1,5 @@
 import type { Metadata } from 'next';
-import {
-  DM_Serif_Text,
-  Jura,
-  Montserrat,
-  Outfit,
-  Rubik,
-} from 'next/font/google';
+import { DM_Serif_Text, Jura, Montserrat } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import './globals.css';
 import { ThemeProvider } from '@/providers/ThemeProvider';
@@ -52,7 +46,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-          <Toaster richColors closeButton />
+          <Toaster
+            richColors
+            closeButton
+            className={`${jura.className} font-bold tracking-normal`}
+          />
         </ThemeProvider>
       </body>
     </html>

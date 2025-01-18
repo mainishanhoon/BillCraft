@@ -21,7 +21,7 @@ export default function Header() {
           >
             <ReceiptIndianRupee
               size={35}
-              className="rounded-md bg-primary p-1 text-white"
+              className="rounded-md bg-primary p-1.5 text-white"
             />
             <p className="font-serif font-bold tracking-widest">
               Bill
@@ -33,11 +33,11 @@ export default function Header() {
               <div className="flex cursor-pointer items-center space-x-2 md:hidden">
                 <ReceiptIndianRupee
                   size={35}
-                  className="rounded-lg bg-primary p-1 text-white"
+                  className="rounded-lg bg-primary p-1.5 text-white"
                 />
-                <p className="font-jura text-2xl font-bold tracking-wider">
+                <p className="font-serif text-2xl font-bold tracking-widest">
                   Bill
-                  <span className="tracking-wider text-primary">Craft</span>
+                  <span className="tracking-widest text-primary">Craft</span>
                 </p>
               </div>
             </SheetTrigger>
@@ -49,11 +49,11 @@ export default function Header() {
                 >
                   <ReceiptIndianRupee
                     size={35}
-                    className="rounded-full bg-primary p-1 text-white"
+                    className="rounded-lg bg-primary p-1.5 text-white"
                   />
-                  <p className="font-jura font-bold tracking-wider">
-                    Sole
-                    <span className="tracking-wider text-primary">Mate</span>
+                  <p className="font-serif font-bold tracking-widest">
+                    Bill
+                    <span className="tracking-widest text-primary">Craft</span>
                   </p>
                 </Link>
               </SheetTitle>
